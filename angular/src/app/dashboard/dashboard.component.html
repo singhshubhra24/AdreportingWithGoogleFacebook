@@ -1,0 +1,51 @@
+<main class="main-body body-main-collapse">
+  <div class="report-selection-wrap">
+    <div class="report-selection calander">
+      <div class="icon-info">
+        <div id="reportrange" class="custom-date-picker">
+          <figure class="icon-cal"></figure>
+          <i class="fa fa-calendar"></i>&nbsp; <span></span> <i class="fa fa-caret-down"></i>
+        </div>
+      </div>
+    </div>
+    <div class="report-selection network"> <span class="icon-network"></span> <span class="icon-info">Displayed
+        Networks</span>
+      <div class="scroll-option-box">
+        <div class="scroll-option-wrap"> <span class="arrow-pointer"></span>
+          <ul>
+            <li>
+              <div class="scroll-option-info"><span class="icon google"></span>Google</div>
+              <div class="scroll-option-check">
+                <div class="custom-checkbox">
+                  <div class="checkBox-col ">
+                    <input class="" type="checkbox">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="scroll-option-info"><span class="icon fb"></span>Facebook</div>
+              <div class="scroll-option-check">
+                <div class="custom-checkbox">
+                  <div class="checkBox-col ">
+                    <input class="" type="checkbox">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-displayed-networks></app-displayed-networks>
+
+  <!--  summary-graph-wrap -->
+  <app-summary-graph-wrap> </app-summary-graph-wrap>
+  <app-top-networks [topNetwork] = "dashboardData.topNetwork"></app-top-networks>
+  <!-- 
+   -->
+  <!-- <app-all-networks [allNetworks] = "dashboardData.allNetworks"></app-all-networks> -->
+  <app-compaign-performance [comppaignPerformanceData] = "dashboardData.campaignPerformance"></app-compaign-performance>
+</main>
+<!-- <ng4-loading-spinner> </ng4-loading-spinner> -->

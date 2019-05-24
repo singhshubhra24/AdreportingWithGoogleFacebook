@@ -1,0 +1,187 @@
+<div class="tile-view-wrap">
+  <div class="tileView-main-col1">
+    <div class="tile-view-box">
+      <div class="tile-stats-box">
+        <div class="select-head-wrap">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select (change)="chunksFilter($event)">
+                <option  value ="clicks,TOP_1" selected>Clicks</option>
+                <option  value="impressions,TOP_1">Impressions</option>
+                <option  value="spend,TOP_1">Spends</option>
+                <option  value="cpc,TOP_1">Cost per Conversion</option>
+                <option  value="leads,TOP_1">Leads</option>
+                <option  value="ctr,TOP_1">CTR%</option>
+                <option  value="conversions,TOP_1">Conversions</option>
+                <option  value="avgcpc,TOP_1">Avg. CPC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tile-stats-wrap">
+          <div class="select-head-info">
+            <div class="select-head-num" *ngIf="TOP_1_FB"><span>{{TOP_1_FB+TOP_1_GAd}}</span></div>
+            <div class="select-head-percent"> <span class="head-percent-val red">22%</span> </div>
+          </div>
+          <div class="tile-info-num">
+            <!-- <div id="chartContainer1" style="height: 110px; max-width: 100%; margin: 0px auto;"></div> -->
+            <highcharts-chart 
+                [Highcharts]="chart1"
+                [options]="chart1Options"                            
+                style="width: 100%; height: 110px; display: block;"
+                ></highcharts-chart>
+          </div>
+        </div>
+        <div class="tile-social-info google"><span class="icon"></span><span class="value-num" *ngIf="TOP_1_GAd">{{TOP_1_GAd}}</span></div>
+        <div class="tile-social-info fb"><span class="icon"></span><span class="value-num" *ngIf="TOP_1_FB">{{TOP_1_FB}}</span></div>
+      </div>
+    </div>
+    <div class="tile-view-box">
+      <div class="tile-stats-box">
+        <div class="select-head-wrap">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select (change)="chunksFilter($event)">
+                <option  value="clicks,TOP_2">Clicks</option>
+                <option  value="impressions,TOP_2" selected>Impressions</option>
+                <option  value="spend,TOP_2">Spends</option>
+                <option  value="cpc,TOP_2">Cost per Conversion</option>
+                <option  value="leads,TOP_2">Leads</option>
+                <option  value="ctr,TOP_2">CTR%</option>
+                <option  value="conversions,TOP_2">Conversions</option>
+                <option  value="avgcpc,TOP_2">Avg. CPC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tile-stats-wrap">
+          <div class="select-head-info">
+            <div class="select-head-num" *ngIf="TOP_2_FB"><span>{{TOP_2_FB+TOP_2_GAd}}</span></div>
+            <div class="select-head-percent"> <span class="head-percent-val green">17%</span> </div>
+          </div>
+          <div class="tile-info-num">
+            <!-- <div id="chartContainer6" style="height: 110px; max-width: 100%; margin: 0px auto;"></div> -->
+            <highcharts-chart 
+                [Highcharts]="chart2"
+                [options]="chart2Options"                            
+                style="width: 100%; height: 110px; display: block;"
+                ></highcharts-chart>
+          </div>
+        </div>
+        <div class="tile-social-info google"><span class="icon"></span><span class="value-num" *ngIf="TOP_2_GAd">{{TOP_2_GAd}}</span></div>
+        <div class="tile-social-info fb"><span class="icon"></span><span class="value-num" *ngIf="TOP_2_FB">{{TOP_2_FB}}</span></div>
+      </div>
+    </div>
+    <div class="tile-view-box spend-tile-view">
+      <div class="tile-stats-box">
+        <div class="select-head-wrap">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select (change)="chunksFilter($event)">
+                <option  value="clicks,TOP_3" >Clicks</option>
+                <option  value="impressions,TOP_3" >Impressions</option>
+                <option  value="spend,TOP_3" selected>Spends</option>
+                <option  value="cpc,TOP_3">Cost per Conversion</option>
+                <option  value="leads,TOP_3">Leads</option>
+                <option  value="ctr,TOP_3">CTR%</option>
+                <option  value="conversions,TOP_3">Conversions</option>
+                <option  value="avgcpc,TOP_3">Avg. CPC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tile-stats-wrap">
+          <div class="select-head-info">
+            <div class="select-head-num" *ngIf="TOP_3_FB"><span class="rupee-symbol" >&#8377;&nbsp;</span><span>{{TOP_3_FB+TOP_3_GAd}}</span></div>
+            <div class="select-head-percent"> <span class="head-percent-val green">17%</span> </div>
+          </div>
+          <div class="tile-info-num">
+            <div class="progress-bar-wrap">
+              <h4>Budget Utilization</h4>
+              <div class="progress-bar"> <span class="progress-value" style="width:80%;"></span> </div>
+            </div>
+          </div>
+        </div>
+        <div class="tile-social-info google"><span class="icon"></span><span class="value-num" *ngIf="TOP_3_GAd">{{TOP_3_GAd}}</span></div>
+        <div class="tile-social-info fb"><span class="icon"></span><span class="value-num" *ngIf="TOP_3_FB">{{TOP_3_FB}}</span></div>
+      </div>
+    </div>
+    <div class="tile-view-box">
+      <div class="tile-stats-box">
+        <div class="select-head-wrap">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select id="dropdown-tile-costConv" (change)="facebookFilter($event)">
+                <option  value="clicks,TOP_4" >Clicks</option>
+                <option  value="impressions,TOP_4" >Impressions</option>
+                <option  value="spend,TOP_4" >Spends</option>
+                <option  value="cpc,TOP_4" selected>Cost per Conversion</option>
+                <option  value="leads,TOP_4">Leads</option>
+                <option  value="ctr,TOP_4">CTR%</option>
+                <option  value="conversions,TOP_4">Conversions</option>
+                <option  value="avgcpc,TOP_4">Avg. CPC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tile-stats-wrap">
+          <div class="select-head-info">
+            <div class="select-head-num" *ngIf="TOP_4_GAd"><span class="rupee-symbol">&#8377;&nbsp;</span><span>{{TOP_4_FB+TOP_4_GAd}}</span></div>
+            <div class="select-head-percent"> <span class="head-percent-val red">17%</span> </div>
+          </div>
+          <div class="tile-info-num stats-drum">
+            <!-- <div id="chartContainer3" style="height: 110px; max-width: 100%; margin: 0px auto;"></div> -->
+            <highcharts-chart 
+                [Highcharts]="chart3"
+                [options]="chart3Options"                            
+                style="width: 100%; height: 110px; display: block;"
+                ></highcharts-chart>
+          </div>
+        </div>
+        <div class="tile-social-info google"><span class="icon"></span><span class="value-num">{{TOP_4_GAd}}</span></div>
+        <div class="tile-social-info fb"><span class="icon"></span><span class="value-num">{{TOP_4_FB}}</span></div>
+      </div>
+    </div>
+    <div class="tile-view-box">
+      <div class="tile-stats-box">
+        <div class="select-head-wrap">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select id="dropdown-tile-leads" onchange="showValue(this.value)">
+                <option  value="clicks,TOP_5" >Clicks</option>
+                <option  value="impressions,TOP_5" >Impressions</option>
+                <option  value="spend,TOP_5" >Spends</option>
+                <option  value="cpc,TOP_5">Cost per Conversion</option>
+                <option  value="leads,TOP_5" selected>Leads</option>
+                <option  value="ctr,TOP_5">CTR%</option>
+                <option  value="conversions,TOP_5">Conversions</option>
+                <option  value="avgcpc,TOP_5">Avg. CPC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="tile-stats-wrap">
+          <div class="select-head-info">
+            <div class="select-head-num"><span>234</span></div>
+            <div class="select-head-percent"> <span class="head-percent-val red">17%</span> </div>
+          </div>
+          <div class="tile-info-num">
+            <div class="lead-device-wrap">
+              <div class="lead-device1">
+                <figure></figure>
+                <span class="device-val">110</span></div>
+              <div class="lead-device2">
+                <figure></figure>
+                <span class="device-val"></span></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="tile-social-info google"><span class="icon"></span><span class="value-num">22,3456</span></div>
+        <div class="tile-social-info fb"><span class="icon"></span><span class="value-num">18,1355</span></div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<ng4-loading-spinner> </ng4-loading-spinner>

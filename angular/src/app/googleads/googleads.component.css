@@ -1,0 +1,31 @@
+/* .displayInline{
+    display: inline-block;
+}
+.w-50{
+    width: 49% !important;
+    display: inline-block;
+    float: left;
+}
+.summary-reports .data-block,.google-ads.summary-reports .main-graph-wrap,.google-ads.summary-reports .overview-table-wrap{
+    background: #fff !important;
+}
+.p-0{
+    padding-bottom: 0 !important;
+}
+.mg-180{
+    margin-bottom: 180px !important;
+}
+.mt-15{
+    margin-top: 15px !important;
+} */
+
+.google-ads .main-add-lhs .main-add-row2{
+    display: inline-block;
+}
+.overview-table{
+    max-height: 545px;
+    overflow-y: auto;
+}
+.overview-tableDemo{
+    height: 211px;
+}

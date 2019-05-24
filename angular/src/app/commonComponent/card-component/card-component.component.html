@@ -1,0 +1,30 @@
+<div class="main-col2-box1" >
+    <div class="data-block set100">
+      <div class="dataBlock-wrap">
+        <div class="dataBlock-selector-wrap"><span class="selector-head">{{cardVal.title}}</span>
+          <div class="select-box-container">
+            <div class="slect-box-wrap">
+              <div class="slect-box">
+                <app-option-selection></app-option-selection>
+
+              </div>
+            </div>
+          </div>
+          <div class="dataBlock-selector-data"><span><span class="curr-symbol">&#8377;&nbsp;</span><span
+                class="dataBlock-value">{{cardVal.rate}}</span></span></div>
+          <div class="dataBlock-selector-info">
+            <ng-container *ngIf="cardVal.growthRate? true: false">
+              <p
+                [ngClass]="{'positive-reslt' : cardVal.growthRate>0? true: false, 'negative-reslt' : cardVal.growthRate>0? false: true, 'neutral-reslt' : cardVal.growthRate===0? true: false }">
+
+                <span class="sort-icon"></span><span
+                  class="value-percent">{{cardVal.growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span
+                  class="value-num">{{cardVal.prev}}</span></p>
+
+            </ng-container>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

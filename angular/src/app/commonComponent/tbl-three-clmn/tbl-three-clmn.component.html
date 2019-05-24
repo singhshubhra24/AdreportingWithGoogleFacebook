@@ -1,0 +1,7 @@
+<li class="table-data">
+  <div class="table-col row1"> <span class=""> {{id+1}}</span></div>
+  <div class="table-col row2 truncate"> {{rowData.name}}</div>
+  <div class="table-col row3" *ngIf="type =='CAMPAIGNS_OVERVIEW'"><span class="curr-symbol">&#8377;&nbsp;</span>{{rowData.spend}}</div>
+  <div class="table-col row3" *ngIf="type=='ADS_OVERVIEW'"><span class="curr-symbol">&#8377;&nbsp;</span>{{rowData.cpc}}</div>
+  <div class="table-col row4">{{rowData.impressions | thousandSuff:2}}</div>
+</li>

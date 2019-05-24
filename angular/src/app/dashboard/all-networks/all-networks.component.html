@@ -1,0 +1,61 @@
+<div class="network-table-wrap">
+  <h2><span>All Networks</span></h2>
+  <ul>
+    <li class="nework-head">
+      <div class="ntwrk-col extra-width">Source</div>
+      <div class="ntwrk-col">Impressions</div>
+      <div class="ntwrk-col">Clicks</div>
+      <div class="ntwrk-col">Installs</div>
+      <div class="ntwrk-col">Cost</div>
+      <div class="ntwrk-col extra-width">Revenue 14d &darr;</div>
+      <div class="ntwrk-col less-width">CVR</div>
+      <div class="ntwrk-col less-width">eCPI</div>
+      <div class="ntwrk-col less-width">ROI 14d</div>
+    </li>
+    <li class="network-inp-wrap">
+      <div class="ntwrk-col extra-width">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col">
+        <input type="text"  value="" placeholder="eg. < 100">
+      </div>
+      <div class="ntwrk-col">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col extra-width">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col less-width">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col less-width">
+        <input type="text"  value="">
+      </div>
+      <div class="ntwrk-col less-width">
+        <input type="text"  value="">
+      </div>
+    </li>
+
+    <!-- nework-sub-head -->
+    <li [ngClass]='{"nework-sub-data": i, "nework-sub-head" :!i  }'  *ngFor= "let data of ALLNETWORKS; let i=index">
+      <div class="ntwrk-col extra-width">{{data.network}}</div>
+      <div class="ntwrk-col">{{data.impr}}</div>
+      <div class="ntwrk-col">{{data.clicks}}</div>
+      <div class="ntwrk-col">--</div>
+      <div class="ntwrk-col less-width">{{data.spend}}</div>
+
+      <div class="ntwrk-col">$--</div>
+      <div class="ntwrk-col extra-width">$--</div>
+      <div class="ntwrk-col less-width">--%</div>
+      <div class="ntwrk-col less-width">$ --%</div>
+    </li>
+  
+  </ul>
+  <div class="clear"></div>
+</div>

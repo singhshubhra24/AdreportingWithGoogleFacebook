@@ -1,0 +1,104 @@
+<div class="summary-tabe-wrap">
+  <div class="campaign-select-wraper">
+    <div class="complete-table-container">
+      <div class="table-data-slection">
+        <div class="table-data-col">
+          <h2><span>Summary: Top Networks</span></h2>
+        </div>
+        <div class="table-data-col">
+          <div class="table-dataRhs-col">
+            <div class="slect-box-wrap">
+              <div class="slect-box">
+                <select id="network-col-select">
+                  <option selected="" title="">Select Columns</option>
+                  <option title="">Select rows</option>
+                  <option title="">All</option>
+                </select>
+              </div>
+            </div>
+            <input type="button" (click)="exportAsXLSX(ALLDATA)" value="Export" class="export-btn">
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <div class="table-container">
+          <table >
+            <thead>
+              <tr class="table-headings">
+                <td class="table-col camp-icon">Network</td>
+                <td class="table-col"><span class="elipse-txt">Clicks</span></td>
+                <td class="table-col"><span class="elipse-txt">IMPR.</span></td>
+                <td class="table-col"><span class="elipse-txt">CTR</span></td>
+                <td class="table-col"><span class="elipse-txt">Spend</span></td>
+                <td class="table-col"><span class="elipse-txt">Avg.CPC</span></td>
+                <td class="table-col"><span class="elipse-txt">Web Conv.</span></td>
+                <td class="table-col"><span class="elipse-txt">Conv. Rate</span></td>
+                <td class="table-col"><span class="elipse-txt">CPA</span></td>
+                <td class="table-col"><span class="elipse-txt">Actions</span></td>
+                <td class="table-col"><span class="elipse-txt">SOC.Clicks</span></td>
+                <td class="table-col"><span class="elipse-txt">Follow</span></td>
+                <td class="table-col"><span class="elipse-txt">Replies</span></td>
+                <td class="table-col"><span class="elipse-txt">Retwe...</span></td>
+                <td class="table-col"><span class="elipse-txt">Likes</span></td>
+                <td class="table-col"><span class="elipse-txt">Results</span></td>
+                <td class="table-col"><span class="elipse-txt">CPR</span></td>
+                <td class="table-col"><span class="elipse-txt">Avg. Pos</span></td>
+              </tr>
+              
+          <!--     <tr class="second-head">
+                <td class="table-col camp-icon">&nbsp;</td>
+                <td class="table-col">86,985</td>
+                <td class="table-col">3,743,237</td>
+                <td class="table-col">2.14%</td>
+                <td class="table-col">&#8377;54,670.45</td>
+                <td class="table-col">82,906</td>
+                <td class="table-col">3,783,287</td>
+                <td class="table-col">10.14%</td>
+                <td class="table-col">&#8377;56,670.45</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+                <td class="table-col">--</td>
+              </tr> -->
+            </thead>
+            
+            <tbody>
+              <tr [ngClass]='{"second-head": !i , "footer": last}'  *ngFor="let data of ALLDATA; let i=index; let last = last">
+                <td class="table-col camp-icon">
+                  <ng-container *ngIf="data.network">
+                      <span [ngClass]='{"google": data.network==="GOOGLE"? true: false, "facebook": data.network!="GOOGLE"? true: false}'></span> {{data.network}}
+
+
+                  </ng-container> </td>
+                  <td class="table-col">{{data.clicks}}</td>
+
+                <td class="table-col">{{data.impr}}</td>
+                <td class="table-col">{{data.ctr}}</td>
+                <td class="table-col">{{data.spend}}%</td>
+                <td class="table-col">&#8377;{{data.avgCpc}}</td>
+                <td class="table-col">{{data.webConv}}</td>
+                <td class="table-col">{{data.convRate}}</td>
+                <td class="table-col">{{data.cpa}}%</td>
+                <td class="table-col">{{data.actions}}</td>
+                <td class="table-col">{{data.socClick}}</td>
+                <td class="table-col">{{data.follow}}</td>
+                <td class="table-col">{{data.replies}}</td>
+                <td class="table-col">{{data.retwe}}</td>
+                <td class="table-col">{{data.likes}}</td>
+                <td class="table-col">{{data.results}}</td>
+                <td class="table-col">{{data.cpr}}</td>
+                <td class="table-col">{{data.avgPos}}</td>
+              </tr>
+ 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

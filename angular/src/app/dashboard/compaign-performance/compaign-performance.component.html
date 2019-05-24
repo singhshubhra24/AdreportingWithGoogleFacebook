@@ -1,0 +1,170 @@
+<div class="campaign-select-wraper">
+  <div class="complete-table-container">
+    <div class="table-data-slection">
+      <h2 class="campaign-perform"><span>Campaign Performance</span></h2>
+      <div class="table-data-col">
+        <div class="slect-box-wrap">
+          <div class="slect-box">
+            <select id="drop-list-selction">
+              <option selected="" title="">All but deleted</option>
+              <option title="">Selected</option>
+              <option title="">All</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search">
+        </div>
+      </div>
+      <div class="table-data-col">
+        <div class="table-dataRhs-col">
+          <div class="slect-box-wrap">
+            <div class="slect-box">
+              <select id="drop-listCol-selction">
+                <option selected="" title="">Select Columns</option>
+                <option title="">Select rows</option>
+                <option title="">All</option>
+              </select>
+            </div>
+          </div>
+          <input type="button" (click)="exportAsXLSX(CAMPAIGNVIEW)" value="Export" class="export-btn">
+        </div>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr class="table-headings">
+              <td class="table-col selection">
+                <div class="custom-checkbox">
+                  <div class="checkBox-col ">
+                    <input class="" type="checkbox">
+                  </div>
+                </div>
+              </td>
+              <td class="table-col play-pause-icon">&nbsp;</td>
+              <td class="table-col status"><span class="elipse-txt">Status</span></td>
+              <td class="table-col camp-name"><span class="elipse-txt">Campaign Name</span></td>
+              <td class="table-col camp-icon">&nbsp;</td>
+              <td class="table-col budget"><span class="elipse-txt">Budget</span></td>
+              <td class="table-col"><span class="elipse-txt">Clicks</span></td>
+              <td class="table-col"><span class="elipse-txt">IMPR.</span></td>
+              <td class="table-col"><span class="elipse-txt">CTR</span></td>
+              <td class="table-col"><span class="elipse-txt">Spend</span></td>
+              <td class="table-col"><span class="elipse-txt">Avg.CPC</span></td>
+              <td class="table-col"><span class="elipse-txt">Web Conv.</span></td>
+              <td class="table-col"><span class="elipse-txt">Conv. Rate</span></td>
+              <td class="table-col"><span class="elipse-txt">CPA</span></td>
+              <td class="table-col"><span class="elipse-txt">Actions</span></td>
+              <td class="table-col"><span class="elipse-txt">SOC.Clicks</span></td>
+              <td class="table-col"><span class="elipse-txt">Follow</span></td>
+              <td class="table-col"><span class="elipse-txt">Replies</span></td>
+              <td class="table-col"><span class="elipse-txt">Retwe...</span></td>
+              <td class="table-col"><span class="elipse-txt">Likes</span></td>
+              <td class="table-col"><span class="elipse-txt">Results</span></td>
+              <td class="table-col"><span class="elipse-txt">CPR</span></td>
+              <td class="table-col"><span class="elipse-txt">Avg. POS</span></td>
+            </tr>
+            <tr class="second-head">
+              <td class="table-col selection">&nbsp;</td>
+              <td class="table-col play-pause-icon">&nbsp;</td>
+              <td class="table-col status">&nbsp; STATUS</td>
+              <td class="table-col camp-name"><span>{{COUNT}} CAMPAIGNS</span></td>
+              <td class="table-col camp-icon">&nbsp;</td>
+              <td class="table-col budget">&nbsp;{{budget}}</td>
+              <td class="table-col">{{clicks}}</td>
+              <td class="table-col">{{impr}}</td>
+              <td class="table-col">{{ctr}}%</td>
+              <td class="table-col">&#8377;{{spend}}</td>
+              <td class="table-col">{{avgcpc}}</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--%</td>
+              <td class="table-col">&#8377;--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let data of CAMPAIGNVIEW | filter:searchText">
+              <td class="table-col selection">
+
+                <!-- <div class="custom-checkbox"> -->
+
+                <div [ngClass]='{ "custom-checkbox" :  true, "checked": data.checked}'>
+
+                  <input type="checkbox" (change)="addChecked($event, data)" id={{i}}>
+                  <!-- </div> -->
+                </div>
+              </td>
+              <td class="table-col play-pause-icon"><span></span></td>
+              <td class="table-col status">{{data.status}}</td>
+              <td class="table-col camp-name"><span>{{data.name}}</span></td>
+              <td class="table-col camp-icon">
+                <span [ngClass]="data.platform"></span></td>
+              <td class="table-col budget">
+                <div class="budget-popup">
+                  <h3>Edit</h3>
+                  <input type="text" value="">
+                </div>
+                <div class="buget-price">&#8377;{{data.budget}} INR<span class="edit-icon"></span></div>
+                <span class="day-info">1 Active | Daily</span>
+              </td>
+              <td class="table-col">{{data.clicks}}</td>
+              <td class="table-col">{{data.impressions}}</td>
+              <td class="table-col">{{data.ctr +'%'}}</td>
+              <td class="table-col">&#8377;{{data.spend}}</td>
+              <td class="table-col">{{data.avgcpc/100000 | number : '.2-2'}}</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+            </tr>
+
+            <tr class="footer">
+              <td class="table-col selection">&nbsp;</td>
+              <td class="table-col play-pause-icon">&nbsp;</td>
+              <td class="table-col status">&nbsp;</td>
+              <td class="table-col camp-name"><span>859 CAMPAIGNS</span></td>
+              <td class="table-col camp-icon">&nbsp;</td>
+              <td class="table-col budget">&nbsp;</td>
+              <td class="table-col">96,906</td>
+              <td class="table-col">3,453,237</td>
+              <td class="table-col">7.14%</td>
+              <td class="table-col">&#8377;62,670.45</td>
+              <td class="table-col">78,906</td>
+              <td class="table-col">7,773,237</td>
+              <td class="table-col">4.14%</td>
+              <td class="table-col">&#8377;62,670.45</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+              <td class="table-col">--</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

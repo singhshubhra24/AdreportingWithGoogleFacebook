@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>funnel</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI/Icons/Left-Nav/funnel" transform="translate(-3.000000, -5.000000)" fill="#D8D8D8" fill-rule="nonzero">
+            <g id="funnel" transform="translate(3.000000, 5.000000)">
+                <path d="M0,0 L8.58387719,10.1598663 L8.58387719,17 L11.9424386,15.5745379 L11.9424386,10.1598663 L20.5263158,0 L0,0 Z M11.0449825,9.82626222 L11.0449825,14.9735446 L9.48133333,15.6375341 L9.48087719,9.82626222 L1.94315789,0.904708623 L18.583614,0.904708623 L11.0449825,9.82626222 Z M10.2631579,9.25837651 L14.4783509,4.28190429 L6.04819298,4.28190429 L10.2631579,9.25837651 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

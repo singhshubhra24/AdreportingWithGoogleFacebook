@@ -1,0 +1,496 @@
+
+<main class="main-body body-main-collapse google-ads summary-reports">
+  <div class="main-adds-container" style="display: inline-block;">
+    <div class="main-add-lhs">
+      <div class="main-add-row1">
+        <div class="main-col2-box1">
+          <div class="main-graph-wrap">
+            <div class="dataBlock-selector-wrap">
+              <div class="data-select-box">
+                <div class="select-box-container">
+                  <label class="selector-head" *ngIf="IMP_GRAPH">{{IMP_GRAPH.title}}</label>
+                  <div class="slect-box-wrap">
+                    <div class="slect-box">
+                      <select (change)="commonFilter($event)">
+                        <option value="today,IMPGRAPH">Today</option>
+                        <option value="this_week,IMPGRAPH">This Week</option>
+                        <option value="last_30_days,IMPGRAPH">Last 30 Days</option>
+                        <option value="yesterday,IMPGRAPH">Yesterday</option>
+                        <option value="this_month,IMPGRAPH">This Month</option>
+                        <option value="quarter,IMPGRAPH">Quarter</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dataBlock-data-wrap" *ngIf="IMP_GRAPH">
+                  <div class="dataBlock-selector-data" ><span>{{IMP_GRAPH.data1}}</span></div>
+                  <div class="dataBlock-selector-info">
+                      <div class="percent-value-wrap">
+                          <p class="negative-reslt"><span class="sort-icon"></span><span class="value-percent">{{IMP_GRAPH.down +"%"}}</span></p>
+                      </div>
+                      &nbsp;Previous:&nbsp;<span class="value-num">{{IMP_GRAPH.prevData}}</span>
+                  </div>
+              </div>
+            </div>
+            <div class="graph-contaier summary-graph-bg">
+        <!-- <div id="{{'chartContainer'+0}}" style="height: 180px; width: 100%;">
+                </div> -->
+              <highcharts-chart 
+                  [Highcharts]="highChartContainer"
+                  [options]="chartContainer0Options"                            
+                  style="width: 100%; height: 200px; display: block;">
+              </highcharts-chart>
+            </div>
+          </div>
+        </div>
+        <div class="main-col2-box2">
+          <div class="main-graph-wrap" *ngIf="ENG_GRAPH">
+            <div class="dataBlock-selector-wrap">
+              <div class="data-select-box">
+                <div class="select-box-container">
+                  <label class="selector-head" *ngIf="ENG_GRAPH">{{ENG_GRAPH.title}}</label>
+                  <div class="slect-box-wrap">
+                    <div class="slect-box">
+                      <!-- <app-option-selection></app-option-selection> -->
+                      <select (change)="commonFilter($event)">
+                          <option value="today,POSTENG_GRAPH">Today</option>
+                          <option value="last_30_days,POSTENG_GRAPH">Last 30 Days</option>
+                          <option value="yesterday,POSTENG_GRAPH">Yesterday</option>
+                          <option value="this_month,POSTENG_GRAPH">This Month</option>
+                          <option value="this_week,POSTENG_GRAPH">This Week</option>
+                          <option value="quarter,POSTENG_GRAPH">Quarter</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dataBlock-data-wrap">
+                <div class="dataBlock-selector-data"><span>{{ENG_GRAPH.data1}}</span></div>
+                <div class="dataBlock-selector-info">
+                  <div class="percent-value-wrap">
+                    <p class="negative-reslt"><span class="sort-icon"></span><span class="value-percent">{{ENG_GRAPH.down+"%"}}</span></p>
+                  </div>
+                  &nbsp;Previous:&nbsp;<span class="value-num">{{ENG_GRAPH.prevData}}</span> </div>
+              </div>
+            </div>
+            <div class="graph-contaier summary-graph-bg">
+              <!-- <div id="chartContainer2" style="height: 180px; width: 100%;"></div> -->
+              <highcharts-chart 
+                [Highcharts]="highChartContainer1"
+                [options]="chartContainer1Options"                            
+                style="width: 100%; height: 200px; display: block;">
+              </highcharts-chart>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="main-add-row2">
+        <div class="main-col2-box1">
+          <div class="main-sub-row1">
+            <div class="main-col2-box1">
+              <div class="data-block">
+                <div class="dataBlock-wrap">
+                  <div class="dataBlock-selector-wrap"><span class="selector-head" *ngIf="CHUNKS">{{CHUNKS[0].title}}</span>
+                    <div class="select-box-container">
+                      <div class="slect-box-wrap">
+                        <div class="slect-box">
+                            <select (change)="chunksFilter($event)">
+                                <option value="today,avgcpc">Today</option>
+                                <option value="this_week,avgcpc">This Week</option>
+                                <option value="last_30_days,avgcpc">Last 30 Days</option>
+                                <option value="yesterday,avgcpc">Yesterday</option>
+                                <option value="this_month,avgcpc">This Month</option>
+                                <option value="quarter,avgcpc">Quarter</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dataBlock-selector-data"><span><span class="curr-symbol">&#8377;&nbsp;</span> <span class="dataBlock-value" *ngIf="CHUNKS">{{CHUNKS[0].rate}}</span></span></div>
+                    <div class="dataBlock-selector-info" *ngIf="CHUNKS">
+                        <ng-container *ngIf="CHUNKS[0].growthRate? true: false">
+                            <p [ngClass]="{'positive-reslt' :CHUNKS[0].growthRate>0? true: false, 'negative-reslt' : CHUNKS[0].growthRate>0? false: true, 'neutral-reslt' : CHUNKS[0].growthRate===0? true: false }">
+                                <span class="sort-icon"></span><span class="value-percent">{{CHUNKS[0].growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span class="value-num">{{CHUNKS[0].prev}}</span></p>
+                        </ng-container>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-col2-box2">
+              <div class="data-block">
+                <div class="dataBlock-wrap">
+                  <div class="dataBlock-selector-wrap"><span class="selector-head" *ngIf="CHUNKS">{{CHUNKS[1].title}}</span>
+                    <div class="select-box-container">
+                      <div class="slect-box-wrap">
+                        <div class="slect-box">
+                          <select (change)="chunksFilter($event)">
+                              <option value="today,conversions">Today</option>
+                              <option value="this_week,conversions">This Week</option>
+                              <option value="yesterday,conversions">Yesterday</option>
+                              <option value="this_month,conversions">This Month</option>
+                              <option value="last_30_days,conversions">Last 30 Days</option>
+                              <option value="quarter,conversions">Quarter</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dataBlock-selector-data"><span><span class="dataBlock-value" *ngIf="CHUNKS">{{CHUNKS[1].rate}}</span></span></div>
+                      <div class="dataBlock-selector-info" *ngIf="CHUNKS">
+                        <ng-container *ngIf="CHUNKS[1].growthRate">
+                            <p [ngClass]="{'positive-reslt' : CHUNKS[1].growthRate>0? true: false, 'negative-reslt' : CHUNKS[1].growthRate>0? false: true, 'neutral-reslt' : CHUNKS[1].growthRate===0? true: false }">
+                                <span class="sort-icon"></span><span class="value-percent">{{CHUNKS[1].growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span class="value-num">{{CHUNKS[1].prev}}</span></p>
+                        </ng-container>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="main-sub-row2">
+            <div class="main-col2-box1">
+              <div class="data-block">
+                <div class="dataBlock-wrap">
+                  <div class="dataBlock-selector-wrap"><span class="selector-head" *ngIf=CHUNKS>{{CHUNKS[2].title}}</span>
+                    <div class="select-box-container">
+                      <div class="slect-box-wrap">
+                        <div class="slect-box">
+                            <select (change)="chunksFilter($event)">
+                                <option value="today,cost_conv">Today</option>
+                                <option value="yesterday,cost_conv">Yesterday</option>
+                                <option value="this_month,cost_conv">This Month</option>
+                                <option value="this_week,cost_conv">This Week</option>
+                                <option value="last_30_days,cost_conv">Last 30 Days</option>
+                                <option value="quarter,cost_conv">Quarter</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="dataBlock-selector-data"><span class="curr-symbol">&#8377;&nbsp;</span><span class="dataBlock-value" *ngIf="CHUNKS">{{CHUNKS[2].rate}}</span></div>
+                      <div class="dataBlock-selector-info" *ngIf="CHUNKS">
+                          <ng-container *ngIf="CHUNKS[2].growthRate? true: false">
+                              <p [ngClass]="{'positive-reslt' : CHUNKS[2].growthRate>0? true: false, 'negative-reslt' : CHUNKS[2].growthRate>0? false: true, 'neutral-reslt' : CHUNKS[2].growthRate===0? true: false }">
+                                  <span class="sort-icon"></span><span class="value-percent">{{CHUNKS[2].growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span class="value-num">{{CHUNKS[2].prev}}</span></p>
+                          </ng-container>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-col2-box2">
+              <div class="data-block">
+                <div class="dataBlock-wrap">
+                  <div class="dataBlock-selector-wrap"><span class="selector-head" *ngIf=CHUNKS>{{CHUNKS[3].title}}</span>
+                    <div class="select-box-container">
+                      <div class="slect-box-wrap">
+                        <div class="slect-box">
+                            <select (change)="chunksFilter($event)">
+                                <option value="today,spend">Today</option>
+                                <option value="this_week,spend">This Week</option>
+                                <option value="yesterday,spend">Yesterday</option>
+                                <option value="this_month,spend">This Month</option>
+                                <option value="last_30_days,spend">Last 30 Days</option>
+                                <option value="quarter,spend">Quarter</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="dataBlock-selector-data"><span class="curr-symbol">&#8377;&nbsp;</span><span class="dataBlock-value" *ngIf="CHUNKS">{{CHUNKS[2].rate}}</span></div>
+                      <div class="dataBlock-selector-info" *ngIf="CHUNKS">
+                          <ng-container *ngIf="CHUNKS[2].growthRate? true: false">
+                              <p [ngClass]="{'positive-reslt' : CHUNKS[2].growthRate>0? true: false, 'negative-reslt' : CHUNKS[2].growthRate>0? false: true, 'neutral-reslt' : CHUNKS[2].growthRate===0? true: false }">
+                                  <span class="sort-icon"></span><span class="value-percent">{{CHUNKS[2].growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span class="value-num">{{CHUNKS[2].prev}}</span></p>
+                          </ng-container>
+                      </div> -->
+                    <div class="dataBlock-selector-data"><span><span class="curr-symbol">&#8377;&nbsp;</span><span class="dataBlock-value" *ngIf="CHUNKS">{{CHUNKS[3].rate}}</span></span></div>
+                      <div class="dataBlock-selector-info" *ngIf="CHUNKS">
+                          <ng-container *ngIf="CHUNKS[3].growthRate? true: false">
+                              <p [ngClass]="{'positive-reslt' : CHUNKS[3].growthRate>0? true: false, 'negative-reslt' : CHUNKS[3].growthRate>0? false: true, 'neutral-reslt' : CHUNKS[3].growthRate===0? true: false }">
+                                  <span class="sort-icon"></span><span class="value-percent">{{CHUNKS[3].growthRate +"%"}}</span>&nbsp;&nbsp;Previous:&nbsp;<span class="value-num">{{CHUNKS[3].prev}}</span></p>
+                          </ng-container>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="main-col2-box2">
+          <div class="overview-table-wrap">
+            <div class="overview-table-selector"> <span class="selector-head">{{facebookPageData.CAMPAIGNS_OVERVIEW.title}}</span>
+              <div class="select-box-container">
+                <div class="slect-box-wrap">
+                  <div class="slect-box">
+                      <select (change)="commonFilter($event)">
+                          <option value="today,CAMPAIGNS_OVERVIEW">Today</option>
+                          <option value="this_week,CAMPAIGNS_OVERVIEW">This Week</option>
+                          <option value="last_30_days,CAMPAIGNS_OVERVIEW">Last 30 Days</option>
+                          <option value="yesterday,CAMPAIGNS_OVERVIEW">Yesterday</option>
+                          <option value="this_month,CAMPAIGNS_OVERVIEW">This Month</option>
+                          <option value="quarter,CAMPAIGNS_OVERVIEW">Quarter</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="overview-tableDemo">
+                <ul class="table-head-rows">
+                    <li class="table-head">
+                        <div class="table-col row1">#</div>
+                        <div class="table-col row2">NAME</div>
+                        <div class="table-col row3">SPENT</div>
+                        <div class="table-col row4">IMPR.</div>
+                    </li>
+                </ul>
+                <!-- <ul class="table-data-rows">
+                    <li class="table-data">
+                      <div class="table-col row1"><span class="rank1"></span></div>
+                      <div class="table-col row2">CI-DSA-AUg18-R1</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                      <div class="table-col row1">2</div>
+                      <div class="table-col row2">Uny_Generic_terms_RLSA_Search</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                      <div class="table-col row1">3</div>
+                      <div class="table-col row2">Uny_Brand_terms_RLSA_2018</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                      <div class="table-col row1">4</div>
+                      <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                      <div class="table-col row1">5</div>
+                      <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                      <div class="table-col row1">6</div>
+                      <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                      <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                      <div class="table-col row4">660.5k</div>
+                    </li>
+                    <li class="table-data">
+                        <div class="table-col row1"><span class="rank1"></span></div>
+                        <div class="table-col row2">CI-DSA-AUg18-R1</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                      <li class="table-data">
+                        <div class="table-col row1">2</div>
+                        <div class="table-col row2">Uny_Generic_terms_RLSA_Search</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                      <li class="table-data">
+                        <div class="table-col row1">3</div>
+                        <div class="table-col row2">Uny_Brand_terms_RLSA_2018</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                      <li class="table-data">
+                        <div class="table-col row1">4</div>
+                        <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                      <li class="table-data">
+                        <div class="table-col row1">5</div>
+                        <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                      <li class="table-data">
+                        <div class="table-col row1">6</div>
+                        <div class="table-col row2">Uny_Brand_terms_RLSA_2017</div>
+                        <div class="table-col row3"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                        <div class="table-col row4">660.5k</div>
+                      </li>
+                  </ul> -->
+                <ul class="table-data-rows">
+                    <app-tbl-three-clmn [rowData]="adsData" [id]="i" *ngFor="let adsData of CAMPAIGNVIEW let i=index"> </app-tbl-three-clmn>
+                </ul>
+                <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-add-rhs" style="height: 620px;">
+      <div class="overview-table-wrap">
+        <div class="overview-table-selector"> <span class="selector-head">CTR BY KEYWORD</span>
+          <div class="select-box-container">
+            <div class="slect-box-wrap">
+              <div class="slect-box">
+                  <select (change)="commonFilter($event)">
+                      <option value="today,CTRKEYBOARD">Today</option>
+                      <option value="last_30_days,CTRKEYBOARD">Last 30 Days</option>
+                      <option value="yesterday,CTRKEYBOARD">Yesterday</option>
+                      <option value="this_month,CTRKEYBOARD">This Month</option>
+                      <option value="this_week,CTRKEYBOARD">This Week</option>
+                      <option value="quarter,CTRKEYBOARD">Quarter</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-table col3-layout">
+            <ul class="table-head-rows">
+                <li class="table-head">
+                    <div class="table-col row1"> Keyword</div>
+                    <div class="table-col row2">Month to date</div>
+                    <div class="table-col row3">%</div>
+                </li>
+            </ul>
+            <!-- <ul class="table-data-rows">
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2">6.08M</div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2">149k</div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap negative-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2">2.45%</div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2">436.8k</div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap negative-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                  <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                  <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                  <div class="table-col row3">
+                    <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                  </div>
+                </li>
+                <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2">6.08M</div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2">149k</div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap negative-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2">2.45%</div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2">436.8k</div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap negative-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+                  <li class="table-data">
+                    <div class="table-col row1">DRTV_Birthday video conversions - June 2017_audience 2</div>
+                    <div class="table-col row2"><span class="curr-symbol">&#8377;&nbsp;</span> <span>30.4k</span></div>
+                    <div class="table-col row3">
+                      <div class="percent-wrap positive-reslt"><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">20%</span></div>
+                    </div>
+                  </li>
+              </ul> -->
+            <ul class="table-data-rows">
+                <app-tbl-three-clmn-up-donw [rowData]="adsData" [id]="i" *ngFor="let adsData of CTRKEYBOARD; let i=index">
+                </app-tbl-three-clmn-up-donw>
+            </ul>
+            <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<ng4-loading-spinner> </ng4-loading-spinner>
+

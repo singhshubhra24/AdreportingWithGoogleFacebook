@@ -1,0 +1,67 @@
+
+
+/* Facebook(updated) Ads Ends*/
+
+/* Summary Pages Ends*/
+
+/* 
+
+
+*/
+.set-mt{
+    margin-top: -3px;
+}
+
+.fb-ads.summary-reports .data-block {
+    min-height: 177px;
+    border: 2px solid #fff;
+}
+.fb-ads .main-add-rhs .overview-table-wrap {
+    height: 856px;
+}
+
+
+app-card-component.setwidth {
+    width: 40%;
+}
+app-card-component.setwidth .data-block.set100 {
+    width: 100%;
+}
+
+ .data-block.set100 {
+    padding: 20px;
+}
+app-card-component.setborder-rt .data-block.set100 {
+    border-right: 4px solid #fff;
+    padding-bottom: 73px;
+}
+
+
+
+.overview-table-wrap{
+    padding-bottom: 123px!important;
+}
+
+.summary-reports .main-graph-wrap {
+    padding-bottom: 180px!important;
+}
+
+.overview-table-wrap.setmargin5{
+    margin-bottom: 5px;
+}
+
+.summary-reports .head-block {
+    min-height: 202px;
+}
+
+.main-add-row2.setpd129 .main-graph-wrap.setpadding129 {
+    padding-bottom: 129px!important;
+
+}
+.summary-reports .add-row-col2 .data-block {
+    min-height: 176px;
+    margin-bottom: 12px;
+}
+.box-shadow{
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="5px" viewBox="0 0 9 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>down arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Events-1" transform="translate(-1398.000000, -31.000000)" fill="#535267" fill-rule="nonzero">
+            <g id="Group-10" transform="translate(0.000000, 1.000000)">
+                <path d="M1404.82011,32.9455463 L1401.04856,36.8152832 C1400.80865,37.0615723 1400.41966,37.0615723 1400.17986,36.8152832 C1399.94005,36.5692131 1399.94005,36.1701112 1400.17986,35.9240611 L1402.57693,32.4999353 L1400.17996,29.0759289 C1399.94014,28.8297593 1399.94014,28.4306972 1400.17996,28.1846272 C1400.41978,27.9384576 1400.80874,27.9384576 1401.04866,28.1846272 L1404.8202,32.0544238 C1404.94011,32.1775186 1405,32.3386771 1405,32.4999153 C1405,32.6612332 1404.94,32.8225113 1404.82011,32.9455463 Z" id="down-arrow" transform="translate(1402.500000, 32.500000) rotate(90.000000) translate(-1402.500000, -32.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

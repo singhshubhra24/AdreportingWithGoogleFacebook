@@ -1,0 +1,31 @@
+<div class="summary-graph-wrap">
+  <div class="summary-graph-box">
+    <div class="summary-graph-head">
+      <h2>Overall Summary Metrics Graph</h2>
+      <div class="graph-Head-rhs">
+        <div class="report-period-wrap">
+          <ul>
+            <li class="active">Day</li>
+            <li>Week</li>
+            <li>Month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="graph-options-wrap">
+      <div class="graph-options">
+        <ul id="grouplist" class="list-group">
+         <li *ngFor="let n of list; let i = index" (click)="select(n)" [ngClass]="{active: isClicked[i]}" (click)="isClicked[i] = (isClicked[i]? false :true  && isMaxed)">
+  <a>{{n}}</a>
+ </li>
+        </ul>
+      </div>
+      <div class="graph-social-filters">
+        <div class="filter-wrap"> <span class="filter-txt">Filter:</span> <span class="icon fb" (click)="metricsFilter('facebook')"></span> <span class="icon google" (click)="metricsFilter('google')"></span> </div>
+      </div>
+    </div>
+    <div class="graph-container">
+      <div id="chartContainer2" style="height: 250px; max-width: 100%; margin: 0px auto;"> </div>
+    </div>
+  </div>
+</div>

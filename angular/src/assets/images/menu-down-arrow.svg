@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="5px" viewBox="0 0 9 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>down arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="divider" transform="translate(-218.000000, -17.000000)" fill="#EBEBEB" fill-rule="nonzero">
+            <g id="Triangle-3" transform="translate(218.000000, 17.000000)">
+                <path d="M6.82010681,2.94554628 L3.04856165,6.81528316 C2.80864582,7.06157228 2.41966343,7.06157228 2.17986408,6.81528316 C1.94004531,6.56921314 1.94004531,6.17011123 2.17986408,5.92406113 L5.51709927,2.49993527 L2.17996114,-0.92407109 C1.94014237,-1.1702407 1.94014237,-1.56930277 2.17996114,-1.81537279 C2.4197799,-2.0615424 2.80874288,-2.0615424 3.04865871,-1.81537279 L6.82020387,2.05442384 C6.94011325,2.17751861 7,2.33867714 7,2.49991535 C7,2.66123323 6.93999678,2.82251127 6.82010681,2.94554628 Z" id="Shape" transform="translate(4.500000, 2.500000) rotate(90.000000) translate(-4.500000, -2.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,7 @@
+<li class="table-data ">
+  <div class="table-col row1 setTbl">{{rowData.name}}</div>
+  <div class="table-col row2">{{rowData.month_date}}</div>
+  <div class="table-col row3">
+    <div [ngClass]='{ "percent-wrap" : true,   "positive-reslt": rowData.percentage > 0?true: false , "negative-reslt" :rowData.percentage < 0 ? true: false}'><span class="sort-icon"></span>&nbsp;<span class="sort-percent-value">{{rowData.percentage +"%"}}</span></div>
+  </div>
+</li>
