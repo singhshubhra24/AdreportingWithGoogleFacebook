@@ -18,7 +18,7 @@
     "fb": "^2.0.0",
     "google-ads-api": "^0.5.1",
     "googleads-node-lib": "0.0.34",
-    "googleapis": "^36.0.0",
+    "googleapis": "^39.1.0",
     "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
     "mocha": "1.6.0",
