@@ -20,7 +20,7 @@
     "googleads-node-lib": "0.0.34",
     "googleapis": "^36.0.0",
     "i": "^0.3.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mocha": "1.6.0",
     "moment": "^2.24.0",
     "node-adwords": "^201809.0.2",
